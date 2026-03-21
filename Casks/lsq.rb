@@ -3,7 +3,7 @@ cask "lsq" do
   name "lsq"
   desc "The ultra-fast CLI companion for Logseq"
   homepage "https://github.com/amiv1/lsq-fork"
-  version "2.1.1"
+  version "2.2.0"
 
   livecheck do
     skip "Auto-generated on release."
@@ -15,12 +15,12 @@ cask "lsq" do
     on_intel do
       url "https://github.com/amiv1/lsq-fork/releases/download/v#{version}/lsq_#{version}_darwin_amd64.tar.gz",
         verified: "github.com/amiv1/lsq-fork"
-      sha256 "98962872a64e39f2c027ba3d00862c1dbe498090036a1c81f29d479c3d0f4fb8"
+      sha256 "686883406e3594a845afe3e91421abed24b54f01bcaae6ce36b2dd5b37e1be71"
     end
     on_arm do
       url "https://github.com/amiv1/lsq-fork/releases/download/v#{version}/lsq_#{version}_darwin_arm64.tar.gz",
         verified: "github.com/amiv1/lsq-fork"
-      sha256 "e63f6eb7a755844af96eff21b5376363ecf3661bb05ab10d3f1c38ba284d4939"
+      sha256 "e3fe52483226c0652b085fb8b92fb3ac3889cd90043602337ded82bb05a3009b"
     end
   end
 
