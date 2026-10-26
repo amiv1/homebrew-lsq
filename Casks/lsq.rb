@@ -2,16 +2,16 @@
 cask "lsq" do
   version "2.4.0"
 
+  depends_on :macos
+
   on_macos do
     on_intel do
       sha256 "603f63d9b4a62f0e386d3eaec3aa44672795c1486f2fa2b70e21dac2abec45a0"
-      url "https://github.com/amiv1/lsq-fork/releases/download/v#{version}/lsq_#{version}_darwin_amd64.tar.gz",
-        verified: "github.com/amiv1/lsq-fork"
+      url "https://github.com/amiv1/lsq-fork/releases/download/v#{version}/lsq_#{version}_darwin_amd64.tar.gz"
     end
     on_arm do
       sha256 "8ac346d5c0981211096505c8028780e5827b025faa5519e377458b158474ffc9"
-      url "https://github.com/amiv1/lsq-fork/releases/download/v#{version}/lsq_#{version}_darwin_arm64.tar.gz",
-        verified: "github.com/amiv1/lsq-fork"
+      url "https://github.com/amiv1/lsq-fork/releases/download/v#{version}/lsq_#{version}_darwin_arm64.tar.gz"
     end
   end
 
@@ -25,10 +25,8 @@ cask "lsq" do
 
   binary "lsq"
 
-  postflight do
-    if OS.mac?
-      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/lsq"]
-    end
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{staged_path}}/lsq"], must_succeed: false
   end
 
   # No zap stanza required
